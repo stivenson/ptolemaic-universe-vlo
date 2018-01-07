@@ -1,0 +1,30 @@
+{
+  "name": "ptolemaic-universe-vlo",
+  "version": "1.0.0",
+  "description": "vlo with interactive game of ptolemaic universe",
+  "main": "index.js",
+  "dependencies": {
+    "phaser-ce": "^2.9.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stivenson/ptolemaic-universe-vlo.git"
+  },
+  "keywords": [
+    "vlo",
+    "phaser",
+    "game",
+    "ptolemaic",
+    "universe"
+  ],
+  "author": "stivenson rincon mora",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/stivenson/ptolemaic-universe-vlo/issues"
+  },
+  "homepage": "https://github.com/stivenson/ptolemaic-universe-vlo#readme"
+}
