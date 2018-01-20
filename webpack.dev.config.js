@@ -32,7 +32,9 @@ module.exports = {
     }),
     new CopyWebpackPlugin([
       { from: './src/assets/images/space-background.png', to: 'assets/images/space-background.png' },
-      { from: './src/assets/images/earth.png', to: 'assets/images/earth.png' }
+      { from: './src/assets/images/earth.png', to: 'assets/images/earth.png' },
+      { from: './src/index.css', to: 'index.css' },
+      { from: './src/index.html', to: 'index.html' }
     ])
   ]
 };
