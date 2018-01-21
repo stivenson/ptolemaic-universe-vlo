@@ -10,3 +10,7 @@ in development with [Phaser](http://phaser.io/)
 ```
 
 and open `index.html` file from a local server.
+
+#### Doc
+
+- [Phaser-ce](https://photonstorm.github.io/phaser-ce/)
