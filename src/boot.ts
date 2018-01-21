@@ -1,50 +1,45 @@
+import { Earth } from './planets/earth';
+import Moon from './planets/moon';
+import { Venere } from './planets/venere';
 
 export default class Boot extends Phaser.State {
 
     title: string;
     private styleTitle: object;
+    public static ASSETS_PATH = 'assets';
+    private static earth;
+    private static moon;
+    private static venere;
 
     preload() {
 
-        this.load.image('space', 'assets/images/space-background.png');
-        this.load.image('earth', 'assets/images/earth.png');
+        this.load.image('space', `${Boot.ASSETS_PATH}/images/space-background.png`);
         this.title = 'Ptolemaic Universe';
         this.styleTitle = { font: '25px Arial', fill: '#ffffff', align: 'center' };
+
+        // init earth
+        Boot.earth = new Earth(this);
+
+        // init moon
+        Boot.moon = new Moon(this);
+
+        // init venere
+        Boot.venere = new Venere(this);
 
     }
 
     create() {
 
         this.add.sprite(0, 0, 'space');
-        const earth = this.add.sprite(335, -200, 'earth');
 
-        const venereOrbit = this.add.graphics(310, 210);
-        venereOrbit.lineStyle(4, 0xD77302, 1);
-        venereOrbit.drawCircle(100, 100, 500);
-
-        const moonOrbit = this.add.graphics(310, 210);
-        moonOrbit.lineStyle(4, 0xD77302, 1);
-        moonOrbit.drawCircle(100, 100, 250);
+        Boot.earth.init();
+        Boot.earth.firstAnimation();
+        Boot.earth.loadEvents();
+        Boot.moon.initOrbit();
+        Boot.venere.initOrbit();
 
         this.game.state.start('Preloader', true, false);
-        earth.inputEnabled = true;
-
-        this.add.tween(earth).to({y: 240}, 4000, Phaser.Easing.Bounce.Out, true);
-
-        this.loadEvents(earth);
         this.add.text(307, 0, this.title, this.styleTitle);
-
-    }
-
-    loadEvents (earth) {
-
-        earth.events.onInputDown.add(this.clickEarth, this);
-
-    }
-
-    clickEarth () {
-
-        console.log('Click in earth');
 
     }
 
