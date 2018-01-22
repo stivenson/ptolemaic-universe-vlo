@@ -38,8 +38,8 @@ export default class Boot extends Phaser.State {
         Boot.moon.initOrbit();
         Boot.venere.initOrbit();
 
-        this.game.state.start('Preloader', true, false);
         this.add.text(307, 0, this.title, this.styleTitle);
+        this.game.state.start('Preloader', true, false);
 
     }
 
