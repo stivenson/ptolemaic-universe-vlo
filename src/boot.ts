@@ -33,9 +33,8 @@ export default class Boot extends Phaser.State {
         this.add.sprite(0, 0, 'space');
 
         Boot.earth.init();
-        Boot.earth.firstAnimation();
-        Boot.earth.loadEvents();
-        Boot.moon.initOrbit();
+        Boot.earth.animations();
+        Boot.moon.init();
         Boot.venere.initOrbit();
 
         this.add.text(307, 0, this.title, this.styleTitle);

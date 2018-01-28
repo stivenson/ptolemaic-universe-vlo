@@ -15,8 +15,10 @@ export class Earth {
     }
 
     init(): void {
-        this.earth = this.boot.add.sprite(335, -200, 'earth');
+        this.earth = this.boot.add.sprite(335, -250, 'earth');
         this.earth.inputEnabled = true;
+        this.earth.anchor.setTo(0.5, 0.5);
+        this.boot.physics.arcade.enable(this.earth);
     }
 
     get imagePath(): string {
@@ -28,21 +30,24 @@ export class Earth {
     }
 
 
-    firstAnimation(): void {
-        this.boot.add.tween(this.earth).to({y: 240}, 4000, Phaser.Easing.Bounce.Out, true);
-        this.loadEvents();
+    animations(): void {
+        this.input();
     }
 
-    loadEvents () {
-
+    events(): void {
         this.earth.events.onInputDown.add(Earth.clickEarth, this.boot);
+    }
 
+    input() {
+        this.boot.add.tween(this.earth).to({y: 240}, 2500, Phaser.Easing.Bounce.Out, true);
+    }
+
+    rotate() {
+        this.earth.position.rotate(10, 0, 2, true, 100);
     }
 
     static clickEarth () {
-
         console.log('Click in earth');
-
     }
 
 }
